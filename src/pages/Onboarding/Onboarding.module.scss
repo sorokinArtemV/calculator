@@ -1,0 +1,29 @@
+﻿.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+
+  &__imageTop {
+    position: absolute;
+  }
+
+  &__imageBot {
+    position: absolute;
+    bottom: -135px;
+  }
+
+  &__btn {
+    padding: 42px 22px 22px 0;
+    align-self: flex-end;
+  }
+
+  &__splash {
+    margin-top: 35px;
+  }
+}
+

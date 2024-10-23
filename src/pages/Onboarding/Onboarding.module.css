@@ -1,0 +1,26 @@
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+.header__imageTop {
+  position: absolute;
+}
+.header__imageBot {
+  position: absolute;
+  bottom: -135px;
+}
+.header__btn {
+  padding: 42px 22px 22px 0;
+  align-self: flex-end;
+}
+.header__splash {
+  margin-top: 35px;
+}
+
+/*# sourceMappingURL=Onboarding.module.css.map */

@@ -1,0 +1,43 @@
+/* Reset all elements to remove default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set default font and background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+    line-height: 1.6;
+}
+
+/* Remove list styles */
+ul, ol {
+    list-style: none;
+}
+
+/* Remove default link styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Reset table styles */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Reset form elements */
+input, button, textarea, select {
+    font: inherit;
+}
+
+.app-container {
+    max-width: 590px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
