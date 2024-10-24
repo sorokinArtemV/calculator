@@ -40,7 +40,7 @@ export const heading = createTheme({
       fontWeight: 400,
       fontFamily: 'Lato, sans-serif',
       letterSpacing: '-0.32px',
-      alignSelf: 'flex-end'
+      alignSelf: 'flex-end',
     },
     subtitle1: {
       fontSize: '1.2rem',
@@ -49,7 +49,6 @@ export const heading = createTheme({
       letterSpacing: '-0.32px',
       maxWidth: '300px',
       textAlign: 'center',
-      opacity: '90%'
     },
   },
 });

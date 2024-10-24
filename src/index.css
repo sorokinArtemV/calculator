@@ -1,4 +1,12 @@
 /* Reset all elements to remove default browser styles */
+
+:root {
+    --primary-color: #6948AA;
+    --secondary-color: #694C9F;
+    --dark-gray: #3E3B3B;
+    --light-gray: #C6C5C5;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +44,7 @@ input, button, textarea, select {
 }
 
 .app-container {
-    max-width: 590px;
+    max-width: 540px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
