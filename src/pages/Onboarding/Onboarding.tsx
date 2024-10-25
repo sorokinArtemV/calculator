@@ -3,7 +3,7 @@ import styles from './Onboarding.module.scss';
 import { ThemeProvider, Typography } from '@mui/material';
 import { heading } from '../../themes/Typography.tsx';
 import { imageUrls, navigation, onboardingScreenText } from '../../../data/data.ts';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Onboarding() {
 
@@ -29,7 +29,7 @@ function Onboarding() {
            width="540" loading="lazy"
       />
       <ThemeProvider theme={heading}>
-        <Typography variant="h5" color="textPurple" className={styles.header__btn}>Skip</Typography>
+        <Link to={navigation.tipsCalculator} className={styles.header__link}>Skip</Link>
         <div className={styles.imageContainer}>
           {imageUrls.map((url: string) =>
             <img className={styles.imageContainer__splash}
@@ -39,11 +39,11 @@ function Onboarding() {
             />)}
         </div>
         <Typography variant="h1" color="purpleContrast">
-          {onboardingScreenText.screen_0.title}
+          {onboardingScreenText[activeIndex].title}
         </Typography>
 
         <Typography variant="subtitle1" color="primaryGray">
-          Calculate tips quickly and accurately With just a few taps
+          {onboardingScreenText[activeIndex].subtitle}
         </Typography>
       </ThemeProvider>
       <div className={styles.dotContainer}>
@@ -72,12 +72,3 @@ function Onboarding() {
 }
 
 export default Onboarding;
-
-
-{/*<div className={styles.header__imageContainer}>*/}
-{/*  <img className={styles.imageContainer__splash}*/}
-{/*       src={imageUrls[activeIndex]}*/}
-{/*       alt="Tips Calculator onboarding image"*/}
-{/*       width="375" height="250" loading="lazy"*/}
-{/*  />*/}
-{/*</div>*/}

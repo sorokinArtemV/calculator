@@ -1,17 +1,18 @@
-﻿export const onboardingScreenText = {
-  screen_0: {
+﻿export const onboardingScreenText = [
+  {
     title: 'Effortless Tipping',
-    subtitle: 'Calculate tips quickly and accurately With just a few taps',
+    subtitle: 'Calculate tips quickly and accurately with just a few taps',
   },
-  screen_1: {
-    title: 'Smart Money Management',
-    subtitle: 'Track your spending, set budgets, and achieve your financial goals effortlessly',
+  {
+    title: 'Money Management',
+    subtitle: 'Manage your money and reach your goals with ease.',
   },
-  screen_2: {
+  {
     title: 'Cool and Engaging',
     subtitle: 'Discover new features, and enhance your experience with every tap',
   },
-};
+];
+
 
 export const imageUrls: string[] = [
   '../../../src/assets/Onboarding/Splash-1.png',
