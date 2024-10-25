@@ -10,6 +10,7 @@
 .header__imageTop, .header__imageBot {
   position: absolute;
   width: 100%;
+  z-index: -1;
 }
 .header__imageBot {
   bottom: 0;
@@ -18,13 +19,15 @@
   padding: 42px 22px 22px 0;
   align-self: flex-end;
 }
-.header__splash {
-  margin-top: 35px;
+
+.imageContainer {
+  display: flex;
+  overflow: hidden;
+  width: 367px;
+  height: 250px;
 }
-@media (max-width: 441px) {
-  .header__splash {
-    width: 100%;
-  }
+.imageContainer__splash {
+  transition: translate 300ms ease-in-out;
 }
 
 .dotContainer {
@@ -36,11 +39,15 @@
   margin-top: 80px;
   position: relative;
 }
-.dotContainer__icon {
+.dotContainer__btn {
   position: absolute;
   bottom: 25%;
   left: 140%;
   transform: translate(-50%, -15%);
+  border: none;
+  background-color: transparent;
+  display: inline-flex;
+  cursor: pointer;
 }
 
 .dot {
@@ -48,6 +55,7 @@
   height: 15px;
   border-radius: 50%;
   background-color: var(--light-gray);
+  cursor: pointer;
 }
 
 .dotActive {

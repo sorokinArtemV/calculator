@@ -1,12 +1,14 @@
-﻿import React, { ReactNode } from 'react';
+﻿import React, { ReactNode, useState } from 'react';
 
 
 interface ISliderProps {
   children: ReactNode,
-  images: string[]
+  imageUrls: string[]
 }
 
-function Slider({ children, images }: ISliderProps) {
+function Slider({ children, imageUrls }: ISliderProps) {
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
   return (
     <div>
       {children}
