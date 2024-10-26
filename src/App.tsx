@@ -3,6 +3,7 @@ import Onboarding from './pages/Onboarding/Onboarding.tsx';
 import TipsCalculator from './pages/TipsCalculator/TipsCalculator.tsx';
 import React from 'react';
 import PageNotFound from './components/PageNotFound/PageNotFound.tsx';
+import Login from './pages/Login/Login.tsx';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route index element={<Onboarding/>}/>
-          <Route path="tipsCalculator" element={<TipsCalculator/>}/>
+          <Route path="login" element={<Login/>}/>
+          <Route path="tips-calculator" element={<TipsCalculator/>}/>
           <Route path="*" element={<PageNotFound/>}/>
         </Routes>
       </BrowserRouter>

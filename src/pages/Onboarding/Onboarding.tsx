@@ -1,4 +1,4 @@
-﻿import React, { ReactElement, useState } from 'react';
+﻿import React, { ReactElement, useEffect, useState } from 'react';
 import styles from './Onboarding.module.scss';
 import { ThemeProvider, Typography } from '@mui/material';
 import { heading } from '../../themes/Typography.tsx';
@@ -8,21 +8,45 @@ import { useNavigate, Link } from 'react-router-dom';
 function Onboarding() {
 
   const [activeIndex, setActiveIndex] = useState<number>(0);
-
+  const [progress, setProgress] = useState(0);
   const navigate = useNavigate();
 
   function handleShowNextImage() {
-    console.log('click');
     if (activeIndex < imageUrls.length - 1) setActiveIndex(index => index + 1);
-    else navigate(navigation.tipsCalculator);
   }
 
   function handleSetActiveImage(index: number) {
     setActiveIndex(index);
+    setProgress(0);
   }
+
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+      setProgress((prevProgress) => {
+        if (prevProgress >= 100) {
+          if (activeIndex < imageUrls.length - 1) {
+            setActiveIndex((index) => index + 1);
+            return 0;
+          }
+
+          const timeout = setTimeout(() => {
+            navigate(navigation.tipsCalculator);
+          }, 100);
+          return prevProgress;
+        }
+
+        return prevProgress + 1;
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [activeIndex, navigate]);
+
 
   return (
     <header className={styles.header}>
+      <progress id="file" max="100" value={progress}></progress>
       <img className={styles.header__imageTop}
            src="../../../src/assets/Onboarding/Top-Cloud.png"
            alt=""
