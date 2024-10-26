@@ -1,0 +1,19 @@
+.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+.main__imageTop, .main__imageBot {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+.main__imageBot {
+  bottom: 0;
+}
+
+/*# sourceMappingURL=Background.module.css.map */

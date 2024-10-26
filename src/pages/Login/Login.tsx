@@ -1,11 +1,32 @@
 ﻿import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import styles from '../Onboarding/Onboarding.module.scss';
+import { Form, Formik } from 'formik';
+import { loginValidationSchema } from './helpers/login-validation-schema.ts';
+import Background from '../../components/Background/Background.tsx';
 
 function Login() {
-  const navigate = useNavigate();
+
+  const initialValues = {
+    email: '',
+    password: '',
+  };
 
   return (
-    <div onClick={() => navigate(-1)}>Onboarding</div>
+    <Background>
+      <h1>Sign in</h1>
+      <h3>Hi ! Welcome back, you have been missed</h3>
+      <Formik
+        initialValues={{ ...initialValues }}
+        validationSchema={loginValidationSchema}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
+        <Form>
+
+        </Form>
+      </Formik>
+    </Background>
   );
 }
 

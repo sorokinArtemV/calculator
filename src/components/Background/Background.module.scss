@@ -1,0 +1,20 @@
+﻿.main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+
+  &__imageTop,
+  &__imageBot {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &__imageBot {
+    bottom: 0;
+  }
+}

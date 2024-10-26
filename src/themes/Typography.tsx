@@ -1,4 +1,5 @@
 ﻿import { createTheme } from "@mui/material";
+import React from 'react';
 
 declare module '@mui/material/styles/createPalette' {
   interface PaletteOptions {
