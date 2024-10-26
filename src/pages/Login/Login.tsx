@@ -1,8 +1,11 @@
 ﻿import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
+
   return (
-    <div>Login</div>
+    <div onClick={() => navigate(-1)}>Onboarding</div>
   );
 }
 

@@ -1,7 +1,14 @@
-﻿export const onboardingScreenText = [
+﻿interface IOnboardingScreenTextInterface {
+  title: string;
+  subtitle: string;
+  buttonText?: string;
+}
+
+export const onboardingScreenText: IOnboardingScreenTextInterface[] = [
   {
     title: 'Effortless Tipping',
     subtitle: 'Calculate tips quickly and accurately with just a few taps',
+    buttonText: 'Get Started',
   },
   {
     title: 'Money Management',
@@ -22,5 +29,6 @@ export const imageUrls: string[] = [
 
 export const navigation = {
   onboarding: '/onboarding',
+  login: '/login',
   tipsCalculator: '/tips-calculator',
 };
