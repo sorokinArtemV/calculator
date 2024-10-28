@@ -1,3 +1,8 @@
-
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-top: 82px;
+}
 
 /*# sourceMappingURL=Login.module.css.map */

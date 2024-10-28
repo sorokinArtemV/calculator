@@ -1,9 +1,11 @@
 ﻿import React, { ReactElement, useEffect, useState } from 'react';
 import styles from './Onboarding.module.scss';
 import { ThemeProvider, Typography } from '@mui/material';
-import { heading } from '../../themes/Typography.tsx';
-import { imageUrls, navigation, onboardingScreenText } from '../../../data/data.ts';
+import { onboarding } from '../../themes/Themes.tsx';
+import { navigation } from '../../constants/navigation.ts';
 import { useNavigate, Link } from 'react-router-dom';
+import { onboardingScreenText } from '../../../data/onboardingData.ts';
+import { imageUrls } from './helpers/onboardingConstants.ts';
 
 function Onboarding() {
 
@@ -59,7 +61,7 @@ function Onboarding() {
            alt=""
            width="540" loading="lazy"
       />
-      <ThemeProvider theme={heading}>
+      <ThemeProvider theme={onboarding}>
         <Link to={navigation.login} className={styles.header__link}>Skip</Link>
         <div className={styles.imageContainer}>
           {imageUrls.map((url: string) =>

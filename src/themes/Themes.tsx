@@ -1,5 +1,4 @@
 ﻿import { createTheme } from "@mui/material";
-import React from 'react';
 
 declare module '@mui/material/styles/createPalette' {
   interface PaletteOptions {
@@ -15,7 +14,7 @@ declare module '@mui/material/styles/createPalette' {
   }
 }
 
-export const heading = createTheme({
+export const onboarding = createTheme({
   palette: {
     textPurple: {
       main: '#6948AA',
@@ -54,4 +53,37 @@ export const heading = createTheme({
   },
 });
 
+export const login = createTheme({
+  typography: {
+    h1: {
+      marginTop: '100px',
+      fontSize: '32px',
+      fontFamily: 'Lato, sans-serif',
+      fontWeight: '600',
+      color: 'var(--primary-gray)',
+    },
+    h5: {
+      marginTop: '15px',
+      fontSize: '18px',
+      fontFamily: 'Lato, sans-serif',
+      fontWeight: '500',
+      color: 'var(--accent-gray)',
+    },
+  }
+});
 
+export const loginScreen = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '8px',
+          backgroundColor: '#8E7AB5',
+          '&:hover': {
+            backgroundColor: '#6C5A9A',
+          },
+        },
+      },
+    },
+  },
+});
