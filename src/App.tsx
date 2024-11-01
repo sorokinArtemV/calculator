@@ -6,11 +6,18 @@ import PageNotFound from './components/PageNotFound/PageNotFound.tsx';
 import Login from './pages/Login/Login.tsx';
 
 function App() {
+
+  const isOnboardingComplete = localStorage.getItem('onboardingComplete') === 'true';
+  const isLoginComplete = localStorage.getItem('loginComplete') === 'true';
+
+  console.log('Onboarding Complete:', isOnboardingComplete);
+  console.log('Login Complete:', isLoginComplete);
+
   return (
     <div className="app-container">
       <BrowserRouter>
         <Routes>
-          <Route index element={<Onboarding/>}/>
+          <Route index element={isOnboardingComplete && isLoginComplete ? <TipsCalculator/> : <Onboarding/>}/>
           <Route path="login" element={<Login/>}/>
           <Route path="tips-calculator" element={<TipsCalculator/>}/>
           <Route path="*" element={<PageNotFound/>}/>

@@ -33,7 +33,6 @@ const TextFieldWrapper = ({ name, placeholder, ...otherProps }: ITextFieldWrappe
     configTextField.helperText = meta.error;
   }
 
-
   return (
     <div className={styles.textFieldWrapper}>
       <TextField  {...configTextField}/>

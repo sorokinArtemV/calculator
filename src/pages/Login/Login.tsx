@@ -4,15 +4,24 @@ import { Form, Formik } from 'formik';
 import { loginValidationSchema } from './helpers/login-validation-schema.ts';
 import Background from '../../components/Background/Background.tsx';
 import { loginScreenText } from '../../../data/loginData.ts';
-import { createTheme, ThemeProvider, Typography } from '@mui/material';
+import { ThemeProvider, Typography } from '@mui/material';
 import { login } from '../../themes/Themes.tsx';
 import TextField from '../../components/FormsUI/TextFieldWrapper/TextFieldWrapper.tsx';
 import { ButtonWrapper } from '../../components/FormsUI/ButtonWrapper/ButtonWrapper.tsx';
+import { useNavigate } from 'react-router-dom';
+import { navigation } from '../../constants/navigation.ts';
 
 function Login() {
   const initialValues = {
     email: '',
     password: '',
+  };
+
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    localStorage.setItem('loginComplete', 'true');
+    navigate(navigation.tipsCalculator);
   };
 
   return (
@@ -26,6 +35,7 @@ function Login() {
         validationSchema={loginValidationSchema}
         onSubmit={(values) => {
           console.log(values);
+          handleSubmit();
         }}
       >
         <Form className={styles.form}>

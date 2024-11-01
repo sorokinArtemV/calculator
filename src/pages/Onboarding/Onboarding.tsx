@@ -19,6 +19,7 @@ function Onboarding() {
       setActiveIndex(index => index + 1);
       setProgress(0);
     } else {
+      localStorage.setItem('onboardingComplete', 'true');
       navigate(navigation.login);
     }
 
@@ -62,7 +63,10 @@ function Onboarding() {
            width="540" loading="lazy"
       />
       <ThemeProvider theme={onboarding}>
-        <Link to={navigation.login} className={styles.header__link}>Skip</Link>
+        <Link
+          to={navigation.login}
+          className={styles.header__link}
+          onClick={() => localStorage.setItem('onboardingComplete', 'true')}>Skip</Link>
         <div className={styles.imageContainer}>
           {imageUrls.map((url: string) =>
             <img className={styles.imageContainer__splash}

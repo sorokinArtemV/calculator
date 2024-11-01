@@ -77,6 +77,7 @@ export const loginScreen = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          fontWeight: '600',
           borderRadius: '8px',
           backgroundColor: '#8E7AB5',
           '&:hover': {
