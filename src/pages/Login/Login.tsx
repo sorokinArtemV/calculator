@@ -4,10 +4,10 @@ import { Form, Formik } from 'formik';
 import { loginValidationSchema } from './helpers/login-validation-schema.ts';
 import Background from '../../components/Background/Background.tsx';
 import { loginScreenText } from '../../../data/loginData.ts';
-import { ThemeProvider, Typography } from '@mui/material';
+import { createTheme, ThemeProvider, Typography } from '@mui/material';
 import { login } from '../../themes/Themes.tsx';
 import TextField from '../../components/FormsUI/TextFieldWrapper/TextFieldWrapper.tsx';
-import Button from '../../components/FormsUI/ButtonWrapper/ButtonWrapper.tsx';
+import { ButtonWrapper } from '../../components/FormsUI/ButtonWrapper/ButtonWrapper.tsx';
 
 function Login() {
   const initialValues = {
@@ -37,7 +37,19 @@ function Login() {
             name="password"
             label="Password"
           />
-          <Button type="submit">Sign in</Button>
+          <Typography variant="h5" sx={{
+            alignSelf: 'flex-end',
+            fontSize: '14px',
+            color: 'var(--primary-color)',
+            fontWeight: '500',
+            marginBottom: '30px',
+            fontFamily: 'Lato, sans-serif',
+            cursor: 'pointer',
+            boxShadow: '0 3px 0px -2px var(--light-purple)',
+          }}>
+            Forgot Password?
+          </Typography>
+          <ButtonWrapper type="submit">Sign in</ButtonWrapper>
         </Form>
       </Formik>
     </Background>

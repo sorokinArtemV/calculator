@@ -4,7 +4,7 @@ import { useFormikContext } from 'formik';
 import { IButtonWrapperProps, IConfigButtonProps } from './ButtonWrapper.interface.ts';
 import { loginScreen } from '../../../themes/Themes.tsx';
 
-function ButtonWrapper({ children, ...otherProps }: IButtonWrapperProps) {
+export function ButtonWrapper({ children, ...otherProps }: IButtonWrapperProps) {
   const { submitForm } = useFormikContext();
 
   const handleSubmit = () => {
@@ -19,18 +19,10 @@ function ButtonWrapper({ children, ...otherProps }: IButtonWrapperProps) {
   };
 
   return (
-    <Button {...configButton} onClick={handleSubmit}>
-      {children}
-    </Button>
-  );
-}
-
-export default function App() {
-  return (
     <ThemeProvider theme={loginScreen}>
-      <ButtonWrapper>
-        Submit
-      </ButtonWrapper>
+      <Button {...configButton} onClick={handleSubmit}>
+        {children}
+      </Button>
     </ThemeProvider>
   );
 }
