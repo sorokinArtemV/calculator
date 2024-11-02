@@ -1,6 +1,10 @@
 ﻿export const loginScreenText = {
   title: 'Sign in',
-  subtitle: 'Hi ! Welcome back, you have been missed',
+  subtitle_01: 'Hi ! Welcome back, you have been missed',
+  subtitle_02: 'Or sign in with',
+  subtitle_03: "Don't have an account?",
+  subtitle_04: 'Sign up',
+  subtitle_05: 'Forgot password?',
 };
 
 export const errorsText = {

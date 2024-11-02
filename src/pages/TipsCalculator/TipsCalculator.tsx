@@ -1,54 +1,52 @@
-﻿import React, { ChangeEvent, FormEvent, useState } from 'react';
+﻿import Background from '../../components/Background/Background.tsx';
+import { Form, Formik } from 'formik';
+import { loginValidationSchema } from '../Login/helpers/login-validation-schema.ts';
+import TextField from '../../components/FormsUI/TextFieldWrapper/TextFieldWrapper.tsx';
+import { Typography } from '@mui/material';
+import { ButtonWrapper } from '../../components/FormsUI/ButtonWrapper/ButtonWrapper.tsx';
+import React from 'react';
+
 
 function TipsCalculator() {
-  const URLS = [
-    {
-      env: "dev",
-      link: "https://dev.url",
-    },
-    {
-      env: "qa",
-      link: "https://qa.url",
-    },
-    {
-      env: "prod",
-      link: "https://prod.url",
-    },
-  ];
-
-  const [selectedEnv, setSelectedEnv] = useState<string>('');
-
-  const handleRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedEnv(event.target.value);
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const selectedUrl = URLS.find(url => url.env === selectedEnv);
-
-    if (selectedUrl) {
-      console.log(selectedUrl.link);
-    } else {
-      console.log('No matching URL found');
-    }
+  const initialValues = {
+    email: '',
+    password: '',
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {URLS.map((url, index) => (
-        <div key={index}>
-          <input
-            type="radio"
-            value={url.env}
-            name="url"
-            onChange={handleRadioChange}
+    <Background>
+      <Formik
+        initialValues={{ ...initialValues }}
+        validationSchema={loginValidationSchema}
+        onSubmit={(values) => {
+          console.log(values);
+        }}
+      >
+        <Form>
+          <TextField
+            name="email"
+            label="Email"
           />
-          <label>{url.env}</label>
-        </div>
-      ))}
-      <button type="submit" disabled={!selectedEnv}>submit</button>
-    </form>
+          <TextField
+            name="password"
+            label="Password"
+          />
+          <Typography variant="h5" sx={{
+            alignSelf: 'flex-end',
+            fontSize: '14px',
+            color: 'var(--primary-color)',
+            fontWeight: '500',
+            marginBottom: '30px',
+            fontFamily: 'Lato, sans-serif',
+            cursor: 'pointer',
+            boxShadow: '0 3px 0px -2px var(--light-purple)',
+          }}>
+            Forgot Password?
+          </Typography>
+          <ButtonWrapper type="submit">Sign in</ButtonWrapper>
+        </Form>
+      </Formik>
+    </Background>
   );
 }
 

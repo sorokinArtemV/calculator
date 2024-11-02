@@ -69,6 +69,12 @@ export const login = createTheme({
       fontWeight: '500',
       color: 'var(--accent-gray)',
     },
+    subtitle1: {
+      fontSize: '14px',
+      fontWeight: 400,
+      fontFamily: 'Lato, sans-serif',
+      letterSpacing: '-0.32px',
+    },
   }
 });
 
@@ -88,3 +94,11 @@ export const loginScreen = createTheme({
     },
   },
 });
+
+export const themes = {
+  text: {
+    colors: {
+      color_01: '#666464',
+    }
+  }
+};

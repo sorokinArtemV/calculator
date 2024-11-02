@@ -10,15 +10,15 @@ function App() {
   const isOnboardingComplete = localStorage.getItem('onboardingComplete') === 'true';
   const isLoginComplete = localStorage.getItem('loginComplete') === 'true';
 
-  console.log('Onboarding Complete:', isOnboardingComplete);
-  console.log('Login Complete:', isLoginComplete);
-
   return (
     <div className="app-container">
       <BrowserRouter>
         <Routes>
-          <Route index element={isOnboardingComplete && isLoginComplete ? <TipsCalculator/> : <Onboarding/>}/>
-          <Route path="login" element={<Login/>}/>
+          {!isOnboardingComplete && <Route index element={<Onboarding/>}/>}
+          {isOnboardingComplete && !isLoginComplete && <Route index element={<Login/>}/>}
+          {isLoginComplete && isOnboardingComplete && <Route index element={<TipsCalculator/>}/>}
+
+          {<Route path="login" element={<Login/>}/>}
           <Route path="tips-calculator" element={<TipsCalculator/>}/>
           <Route path="*" element={<PageNotFound/>}/>
         </Routes>
