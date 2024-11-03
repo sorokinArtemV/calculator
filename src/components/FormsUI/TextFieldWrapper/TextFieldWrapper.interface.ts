@@ -5,6 +5,7 @@ export interface ITextFieldWrapperProps {
   label?: string;
   placeholder?: string;
   otherProps?: object;
+  type?: 'text' | 'email' | 'password' | 'number';
 }
 
 export interface IConfigTextField {
@@ -12,8 +13,19 @@ export interface IConfigTextField {
   helperText?: string;
   fullWidth?: boolean;
   placeholder?: string;
+  type?: 'text' | 'email' | 'password' | 'number';
   variant?: TextFieldVariants;
   color?: 'primary' | 'secondary' | 'info' | 'warning' | 'error' | 'success';
   size?: 'medium' | 'small';
   sx?: object;
+  position?: 'relative' | 'absolute';
+}
+
+export interface IAction {
+  type: string;
+  payload?: string;
+}
+
+export interface IState {
+  isHeld: boolean;
 }

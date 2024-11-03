@@ -44,7 +44,7 @@ function Login() {
           <S.LoginForm>
             <Form>
               <TextField name="email" label="Email"/>
-              <TextField name="password" label="Password"/>
+              <TextField name="password" label="Password" type="password"/>
               <S.RestorePassword>
                 <Typography fontSize="14px" fontFamily="Lato, sans-serif">{loginScreenText.subtitle_05}</Typography>
               </S.RestorePassword>
