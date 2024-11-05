@@ -49,7 +49,7 @@ function Login() {
                 <Typography fontSize="14px" fontFamily="Lato, sans-serif">{loginScreenText.subtitle_05}</Typography>
               </S.RestorePassword>
               <ButtonsContainer>
-                <ButtonWrapper type="submit">{loginScreenText.subtitle_04}</ButtonWrapper>
+                <ButtonWrapper type="submit">{loginScreenText.title}</ButtonWrapper>
               </ButtonsContainer>
             </Form>
             <ThemeProvider theme={login}>

@@ -20,12 +20,3 @@ export interface IConfigTextField {
   sx?: object;
   position?: 'relative' | 'absolute';
 }
-
-export interface IAction {
-  type: string;
-  payload?: string;
-}
-
-export interface IState {
-  isHeld: boolean;
-}

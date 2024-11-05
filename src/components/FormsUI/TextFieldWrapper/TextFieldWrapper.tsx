@@ -1,34 +1,18 @@
 ﻿import { useField } from 'formik';
-import { IAction, IConfigTextField, IState, ITextFieldWrapperProps } from './TextFieldWrapper.interface.ts';
+import { IConfigTextField, ITextFieldWrapperProps } from './helpers/TextFieldWrapper.interface.ts';
 import styles from './TextFieldWrapper.module.scss';
 import { TextField } from '@mui/material';
 import EyeIcon from '../../Icons/EyeIcon/EyeIcon.tsx';
-import { useReducer } from 'react';
-
-
-const initialState: IState = {
-  isHeld: false,
-};
-
-function reducer(state: IState, action: IAction): IState {
-  switch (action.type) {
-    case 'hold':
-      return { ...state, isHeld: true, };
-    case 'release':
-      return { ...state, isHeld: false, };
-    default:
-      throw new Error("Unrecognized action type: " + action.type);
-  }
-}
+import React, { useReducer } from 'react';
+import { initialState, reducer } from './helpers/textfieldReducer.ts';
+import { TextFieldConstants } from './helpers/TextFieldConstants.ts';
 
 const TextFieldWrapper = ({ name, placeholder, type, ...otherProps }: ITextFieldWrapperProps) => {
-
   const [field, meta] = useField(name);
   const configTextField: IConfigTextField = {
     ...field,
     ...otherProps,
-    type: type || 'text',
-    placeholder: placeholder,
+    placeholder,
     fullWidth: true,
     variant: 'outlined',
     color: 'secondary',
@@ -38,7 +22,17 @@ const TextFieldWrapper = ({ name, placeholder, type, ...otherProps }: ITextField
 
   const [{ isHeld }, dispatch] = useReducer(reducer, initialState);
 
-  const isPassword = type === 'password';
+  function handleMouseDown(event: React.MouseEvent<SVGSVGElement> | React.TouchEvent<SVGSVGElement>) {
+    event.preventDefault();
+    dispatch({ type: 'hold' });
+  }
+
+  function handleMouseUp(event: React.MouseEvent<SVGSVGElement> | React.TouchEvent<SVGSVGElement>) {
+    event.preventDefault();
+    dispatch({ type: 'release' });
+  }
+
+  const isPassword = type === TextFieldConstants.Password;
 
   if (meta && meta.touched && meta.error) {
     configTextField.error = true;
@@ -47,11 +41,17 @@ const TextFieldWrapper = ({ name, placeholder, type, ...otherProps }: ITextField
 
   return (
     <div className={styles.textFieldWrapper}>
-      <TextField  {...configTextField} type={type}/>
-      {isPassword && <EyeIcon isHeld={} onMouseDown={} onMouseUp={}/>}
+      <TextField {...configTextField} type={isPassword && isHeld ? TextFieldConstants.Text : type}/>
+      {isPassword && (
+        <EyeIcon
+          isHeld={isHeld}
+          onMouseDown={handleMouseDown}
+          onMouseUp={handleMouseUp}
+
+        />
+      )}
     </div>
   );
 };
 
 export default TextFieldWrapper;
-
